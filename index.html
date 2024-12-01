@@ -150,7 +150,16 @@
 <header id="header">
   
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="">
+      <picture>
+        
+          <source media="(max-width: 479px)" srcset="/images/banner-600w.webp">
+        
+          <source media="(max-width: 799px)" srcset="/images/banner-800w.webp">
+        
+          <source media="(min-width: 800px)" srcset="/images/banner.webp">
+        
+        <img fetchpriority="high" src="/images/banner.webp" alt="">
+      </picture>
     
   
   <div id="header-outer">
@@ -176,6 +185,69 @@
 </header>
 
         <div id="content">
+          
+            <aside id="sidebar">
+  <div class="sidebar-wrapper ">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        <div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Pamper" class="lazyload">
+  <div class="sidebar-author-name">Pamper</div>
+  <div class="sidebar-description">你也要加油哦~</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">7</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">7</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">首页</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">归档</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">关于</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">友链</div>
+    </div>
+  
+</div>
+
+      
+      
+    </div>
+  </div>
+
+  
+</aside>
+
           
           <section id="main">
   
@@ -212,13 +284,13 @@
 
  对数的概念
 2x=4⇒x=22^x=4⇒x=22x=4⇒x=2
-$2^x=5⇒x=? $
+$2^x=5⇒x=?  $
 2x=8⇒x=32^x=8⇒x=32x=8⇒x=3
 在对于ax=ba^x=bax=b 在我们目前的学习中，解不出来时，我们引入了新的符号 log⁡\loglog
 故 ax=b⇒logaba^x=b⇒log_abax=b⇒loga​b  读作 以a为底b的对数
 有了对数之后，我们很多以前解不出来的值都能解了
 如
-3x=6⇒log363^x=6⇒log_363x
+3x=6⇒log363^x=6⇒log_363
         
       </article>
     </div>
@@ -519,69 +591,6 @@ Taking the train, t
 
 
 </section>
-          
-            <aside id="sidebar">
-  <div class="sidebar-wrapper ">
-    <div class="sidebar-wrap" data-aos="fade-up">
-      
-        <div class="sidebar-author">
-  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Pamper" class="lazyload">
-  <div class="sidebar-author-name">Pamper</div>
-  <div class="sidebar-description">你也要加油哦~</div>
-</div>
-<div class="sidebar-state">
-  <div class="sidebar-state-article">
-    <div>文章</div>
-    <div class="sidebar-state-number">7</div>
-  </div>
-  <div class="sidebar-state-category">
-    <div>分类</div>
-    <div class="sidebar-state-number">0</div>
-  </div>
-  <div class="sidebar-state-tag">
-    <div>标签</div>
-    <div class="sidebar-state-number">7</div>
-  </div>
-</div>
-<div class="sidebar-social">
-  
-</div>
-<div class="sidebar-menu">
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">首页</div>
-    </div>
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">归档</div>
-    </div>
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">关于</div>
-    </div>
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">友链</div>
-    </div>
-  
-</div>
-
-      
-      
-    </div>
-  </div>
-
-  
-</aside>
-
           
         </div>
         <footer id="footer">

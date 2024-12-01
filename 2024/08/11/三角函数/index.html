@@ -157,7 +157,16 @@
 <header id="header">
   
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="三角函数">
+      <picture>
+        
+          <source media="(max-width: 479px)" srcset="/images/banner-600w.webp">
+        
+          <source media="(max-width: 799px)" srcset="/images/banner-800w.webp">
+        
+          <source media="(min-width: 800px)" srcset="/images/banner.webp">
+        
+        <img fetchpriority="high" src="/images/banner.webp" alt="三角函数">
+      </picture>
     
   
   <div id="header-outer">
@@ -181,6 +190,83 @@
 </header>
 
         <div id="content">
+          
+            <aside id="sidebar">
+  <div class="sidebar-wrapper wrap-sticky">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">文章目录</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%AC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text"> 三角函数的基本公式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B1%E4%BA%8E%E5%A4%A7%E9%83%A8%E5%88%86%E6%83%85%E5%86%B5%E4%B8%8B%E5%BC%A7%E5%BA%A6%E5%88%B6%E5%8D%95%E4%BD%8Drad%E4%B8%8D%E5%86%99%E4%B8%94%E5%BC%A7%E5%BA%A6%E8%A7%92%E5%BA%A6%E9%83%BD%E7%94%B1%CE%B1%E8%A1%A8%E7%A4%BA%E6%89%80%E4%BB%A5%E6%9C%AC%E6%96%87%E4%B8%AD%E5%B0%86%E5%BC%A7%E5%BA%A6%E8%A7%92%E5%BA%A6%E6%B7%B7%E6%B7%86%E7%9A%84%E5%9C%B0%E6%96%B9%E5%8A%A0%E4%BA%86%E5%8D%95%E4%BD%8D%E4%BB%A5%E8%A1%A8%E6%B8%85%E6%A5%9A%E6%98%8E%E4%BA%86"><span class="toc-number">1.1.</span> <span class="toc-text"> 由于大部分情况下弧度制单位rad不写，且弧度角度都由α表示，所以本文中将弧度角度混淆的地方加了单位，以表清楚明了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E9%93%BA%E5%9E%AB~br%E4%BB%BB%E6%84%8F%E8%A7%92%E7%9A%84%E5%BA%A6%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text"> 三角函数的铺垫~任意角的度数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%A7%E5%BA%A6%E5%88%B6%E4%B8%8E%E8%A7%92%E5%BA%A6%E5%88%B6"><span class="toc-number">1.3.</span> <span class="toc-text"> 弧度制与角度制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%A7%E5%BA%A6%E5%88%B6%E5%85%AC%E5%BC%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 弧度制公式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%A7%92%E5%BA%A6%E6%95%B0"><span class="toc-number">1.3.1.1.</span> <span class="toc-text"> 常用角度数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%A7%E5%BA%A6%E4%B8%8E%E8%A7%92%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.3.1.2.</span> <span class="toc-text"> 弧度与角的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B"><span class="toc-number">1.3.1.2.1.</span> <span class="toc-text"> 例:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%BC%80%E5%A7%8B~br%E4%BB%BB%E6%84%8F%E8%A7%92%E7%9A%84%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text"> 三角函数的开始~任意角的三角函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E8%A7%92%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%85%B3%E7%B3%BB"><span class="toc-number">1.5.</span> <span class="toc-text"> 同角三角函数基本关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E8%83%BD%E5%85%AC%E5%BC%8F"><span class="toc-number">1.6.</span> <span class="toc-text"> 万能公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B1%E5%AF%BC%E5%85%AC%E5%BC%8F"><span class="toc-number">1.7.</span> <span class="toc-text"> 诱导公式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%87%E5%8F%98%E5%81%B6%E4%B8%8D%E5%8F%98%E7%AC%A6%E5%8F%B7%E7%9C%8B%E8%B1%A1%E9%99%90"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 奇变偶不变，符号看象限!!!</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%80%8D%E6%95%B0%E5%85%B3%E7%B3%BB"><span class="toc-number">1.8.</span> <span class="toc-text"> 三角函数倍数关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E5%B9%82%E5%85%AC%E5%BC%8F"><span class="toc-number">1.9.</span> <span class="toc-text"> 降幂公式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E8%A7%92%E5%85%AC%E5%BC%8F"><span class="toc-number">1.9.1.</span> <span class="toc-text"> 辅助角公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%86%E5%88%86%E8%A7%92%E5%85%AC%E5%BC%8F"><span class="toc-number">1.10.</span> <span class="toc-text"> 拆分角公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%AF%E5%8C%96%E5%92%8C%E5%B7%AE%E5%92%8C%E5%B7%AE%E5%8C%96%E5%92%8C%E7%A7%AF"><span class="toc-number">1.11.</span> <span class="toc-text"> 积化和差和差化和积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="toc-number">1.12.</span> <span class="toc-text"> 解三角形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%BD%A2%E9%9D%A2%E7%A7%AF%E5%85%AC%E5%BC%8F"><span class="toc-number">1.12.0.1.</span> <span class="toc-text"> 三角形面积公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86"><span class="toc-number">1.12.0.2.</span> <span class="toc-text"> 正弦定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%99%E5%BC%A6%E5%AE%9A%E7%90%86"><span class="toc-number">1.12.0.3.</span> <span class="toc-text"> 余弦定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F"><span class="toc-number">1.12.0.4.</span> <span class="toc-text"> 常用公式</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%84%9F%E8%B0%A2%E4%BD%A0%E9%98%85%E8%AF%BB%E5%88%B0%E8%BF%99%E9%87%8C"><span class="toc-number">2.</span> <span class="toc-text"> 感谢你阅读到这里❤</span></a></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Pamper" class="lazyload">
+  <div class="sidebar-author-name">Pamper</div>
+  <div class="sidebar-description">你也要加油哦~</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">7</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">7</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">首页</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">归档</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">关于</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">友链</div>
+    </div>
+  
+</div>
+</div>
+      
+      
+        <div class="sidebar-btn-wrapper" style="position:static">
+          <div class="sidebar-toc-btn current"></div>
+          <div class="sidebar-common-btn"></div>
+        </div>
+      
+    </div>
+  </div>
+
+  
+</aside>
+
           
           <section id="main"><article id="post-三角函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
@@ -463,7 +549,15 @@ b^2=a^2+c^2-2ac\cdot\cos B\quad c^2=a^2+b^2-2ab\cdot\cos C
       
     </div>
     <footer class="article-footer">
-      
+      <blockquote class="article-copyright">
+    <p><strong>本文作者：</strong>Pamper @ Pamperの避难所</p>
+    <p><strong>本文链接：</strong><a href="https://pamperkyumi.github.io/2024/08/11/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/">https://pamperkyumi.github.io/2024/08/11/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/</a></p>
+    
+    
+    
+    <p><strong>本文版权：</strong>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><span class="icon-creative-commons"></span>BY-NC-SA</a> 许可协议。转载请注明出处！</p>
+    <span class="icon-creative-commons article-copyright-bg"></span>
+  </blockquote>
       
         <a data-aos="zoom-in" href="/2024/08/11/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/#comments" class="article-comment-link">
           <span class="post-comments-count valine-comment-count" data-xid="/2024/08/11/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
@@ -531,83 +625,6 @@ b^2=a^2+c^2-2ac\cdot\cos B\quad c^2=a^2+b^2-2ab\cdot\cos C
 
 
 </section>
-          
-            <aside id="sidebar">
-  <div class="sidebar-wrapper wrap-sticky">
-    <div class="sidebar-wrap" data-aos="fade-up">
-      
-        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
-  <h3 class="toc-title">文章目录</h3>
-  <div class="sidebar-toc-wrapper toc-div-class" >
-      
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%85%AC%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text"> 三角函数的基本公式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B1%E4%BA%8E%E5%A4%A7%E9%83%A8%E5%88%86%E6%83%85%E5%86%B5%E4%B8%8B%E5%BC%A7%E5%BA%A6%E5%88%B6%E5%8D%95%E4%BD%8Drad%E4%B8%8D%E5%86%99%E4%B8%94%E5%BC%A7%E5%BA%A6%E8%A7%92%E5%BA%A6%E9%83%BD%E7%94%B1%CE%B1%E8%A1%A8%E7%A4%BA%E6%89%80%E4%BB%A5%E6%9C%AC%E6%96%87%E4%B8%AD%E5%B0%86%E5%BC%A7%E5%BA%A6%E8%A7%92%E5%BA%A6%E6%B7%B7%E6%B7%86%E7%9A%84%E5%9C%B0%E6%96%B9%E5%8A%A0%E4%BA%86%E5%8D%95%E4%BD%8D%E4%BB%A5%E8%A1%A8%E6%B8%85%E6%A5%9A%E6%98%8E%E4%BA%86"><span class="toc-number">1.1.</span> <span class="toc-text"> 由于大部分情况下弧度制单位rad不写，且弧度角度都由α表示，所以本文中将弧度角度混淆的地方加了单位，以表清楚明了</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E9%93%BA%E5%9E%AB~br%E4%BB%BB%E6%84%8F%E8%A7%92%E7%9A%84%E5%BA%A6%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text"> 三角函数的铺垫~任意角的度数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%A7%E5%BA%A6%E5%88%B6%E4%B8%8E%E8%A7%92%E5%BA%A6%E5%88%B6"><span class="toc-number">1.3.</span> <span class="toc-text"> 弧度制与角度制</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%A7%E5%BA%A6%E5%88%B6%E5%85%AC%E5%BC%8F"><span class="toc-number">1.3.1.</span> <span class="toc-text"> 弧度制公式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E8%A7%92%E5%BA%A6%E6%95%B0"><span class="toc-number">1.3.1.1.</span> <span class="toc-text"> 常用角度数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%A7%E5%BA%A6%E4%B8%8E%E8%A7%92%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.3.1.2.</span> <span class="toc-text"> 弧度与角的转换</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B"><span class="toc-number">1.3.1.2.1.</span> <span class="toc-text"> 例:</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E7%9A%84%E5%BC%80%E5%A7%8B~br%E4%BB%BB%E6%84%8F%E8%A7%92%E7%9A%84%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0"><span class="toc-number">1.4.</span> <span class="toc-text"> 三角函数的开始~任意角的三角函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%8C%E8%A7%92%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%9F%BA%E6%9C%AC%E5%85%B3%E7%B3%BB"><span class="toc-number">1.5.</span> <span class="toc-text"> 同角三角函数基本关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%87%E8%83%BD%E5%85%AC%E5%BC%8F"><span class="toc-number">1.6.</span> <span class="toc-text"> 万能公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%B1%E5%AF%BC%E5%85%AC%E5%BC%8F"><span class="toc-number">1.7.</span> <span class="toc-text"> 诱导公式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A5%87%E5%8F%98%E5%81%B6%E4%B8%8D%E5%8F%98%E7%AC%A6%E5%8F%B7%E7%9C%8B%E8%B1%A1%E9%99%90"><span class="toc-number">1.7.1.</span> <span class="toc-text"> 奇变偶不变，符号看象限!!!</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0%E5%80%8D%E6%95%B0%E5%85%B3%E7%B3%BB"><span class="toc-number">1.8.</span> <span class="toc-text"> 三角函数倍数关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E5%B9%82%E5%85%AC%E5%BC%8F"><span class="toc-number">1.9.</span> <span class="toc-text"> 降幂公式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BE%85%E5%8A%A9%E8%A7%92%E5%85%AC%E5%BC%8F"><span class="toc-number">1.9.1.</span> <span class="toc-text"> 辅助角公式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%86%E5%88%86%E8%A7%92%E5%85%AC%E5%BC%8F"><span class="toc-number">1.10.</span> <span class="toc-text"> 拆分角公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A7%AF%E5%8C%96%E5%92%8C%E5%B7%AE%E5%92%8C%E5%B7%AE%E5%8C%96%E5%92%8C%E7%A7%AF"><span class="toc-number">1.11.</span> <span class="toc-text"> 积化和差和差化和积</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E4%B8%89%E8%A7%92%E5%BD%A2"><span class="toc-number">1.12.</span> <span class="toc-text"> 解三角形</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E8%A7%92%E5%BD%A2%E9%9D%A2%E7%A7%AF%E5%85%AC%E5%BC%8F"><span class="toc-number">1.12.0.1.</span> <span class="toc-text"> 三角形面积公式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%AD%A3%E5%BC%A6%E5%AE%9A%E7%90%86"><span class="toc-number">1.12.0.2.</span> <span class="toc-text"> 正弦定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%99%E5%BC%A6%E5%AE%9A%E7%90%86"><span class="toc-number">1.12.0.3.</span> <span class="toc-text"> 余弦定理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%85%AC%E5%BC%8F"><span class="toc-number">1.12.0.4.</span> <span class="toc-text"> 常用公式</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%84%9F%E8%B0%A2%E4%BD%A0%E9%98%85%E8%AF%BB%E5%88%B0%E8%BF%99%E9%87%8C"><span class="toc-number">2.</span> <span class="toc-text"> 感谢你阅读到这里❤</span></a></li></ol>
-      
-  </div>
-</div>
-</div>
-        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
-  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Pamper" class="lazyload">
-  <div class="sidebar-author-name">Pamper</div>
-  <div class="sidebar-description">你也要加油哦~</div>
-</div>
-<div class="sidebar-state">
-  <div class="sidebar-state-article">
-    <div>文章</div>
-    <div class="sidebar-state-number">7</div>
-  </div>
-  <div class="sidebar-state-category">
-    <div>分类</div>
-    <div class="sidebar-state-number">0</div>
-  </div>
-  <div class="sidebar-state-tag">
-    <div>标签</div>
-    <div class="sidebar-state-number">7</div>
-  </div>
-</div>
-<div class="sidebar-social">
-  
-</div>
-<div class="sidebar-menu">
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">首页</div>
-    </div>
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">归档</div>
-    </div>
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">关于</div>
-    </div>
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">友链</div>
-    </div>
-  
-</div>
-</div>
-      
-      
-        <div class="sidebar-btn-wrapper" style="position:static">
-          <div class="sidebar-toc-btn current"></div>
-          <div class="sidebar-common-btn"></div>
-        </div>
-      
-    </div>
-  </div>
-
-  
-</aside>
-
           
         </div>
         <footer id="footer">

@@ -156,7 +156,16 @@
 <header id="header">
   
     
-      <img fetchpriority="high" src="/images/banner.webp" alt="Hexo博客搭建教程">
+      <picture>
+        
+          <source media="(max-width: 479px)" srcset="/images/banner-600w.webp">
+        
+          <source media="(max-width: 799px)" srcset="/images/banner-800w.webp">
+        
+          <source media="(min-width: 800px)" srcset="/images/banner.webp">
+        
+        <img fetchpriority="high" src="/images/banner.webp" alt="Hexo博客搭建教程">
+      </picture>
     
   
   <div id="header-outer">
@@ -180,6 +189,83 @@
 </header>
 
         <div id="content">
+          
+            <aside id="sidebar">
+  <div class="sidebar-wrapper wrap-sticky">
+    <div class="sidebar-wrap" data-aos="fade-up">
+      
+        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
+  <h3 class="toc-title">文章目录</h3>
+  <div class="sidebar-toc-wrapper toc-div-class" >
+      
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 0.前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E5%AE%89%E8%A3%85git%E5%92%8Cnodejs"><span class="toc-number">2.</span> <span class="toc-text"> 1.安装Git和Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E5%AE%89%E8%A3%85hexo"><span class="toc-number">3.</span> <span class="toc-text"> 2.安装hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E6%8C%91%E9%80%89%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%BB%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text"> 3.挑选喜欢的主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text"> 4.配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B"><span class="toc-number">6.</span> <span class="toc-text"> 5.本地部署查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E9%85%8D%E7%BD%AEssh%E5%AF%86%E9%92%A5"><span class="toc-number">7.</span> <span class="toc-text"> 6.配置SSH密钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E9%83%A8%E7%BD%B2%E5%88%B0github-pages"><span class="toc-number">8.</span> <span class="toc-text"> 7.部署到Github Pages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E6%AC%A3%E8%B5%8F%E4%BD%A0%E7%9A%84blog"><span class="toc-number">9.</span> <span class="toc-text"> 8.欣赏你的blog</span></a></li></ol>
+      
+  </div>
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
+  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Pamper" class="lazyload">
+  <div class="sidebar-author-name">Pamper</div>
+  <div class="sidebar-description">你也要加油哦~</div>
+</div>
+<div class="sidebar-state">
+  <div class="sidebar-state-article">
+    <div>文章</div>
+    <div class="sidebar-state-number">7</div>
+  </div>
+  <div class="sidebar-state-category">
+    <div>分类</div>
+    <div class="sidebar-state-number">0</div>
+  </div>
+  <div class="sidebar-state-tag">
+    <div>标签</div>
+    <div class="sidebar-state-number">7</div>
+  </div>
+</div>
+<div class="sidebar-social">
+  
+</div>
+<div class="sidebar-menu">
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">首页</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">归档</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">关于</div>
+    </div>
+  
+    <div class="sidebar-menu-link-wrap">
+      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
+      <div class="sidebar-menu-icon icon-taichi"></div>
+      <div class="sidebar-menu-link">友链</div>
+    </div>
+  
+</div>
+</div>
+      
+      
+        <div class="sidebar-btn-wrapper" style="position:static">
+          <div class="sidebar-toc-btn current"></div>
+          <div class="sidebar-common-btn"></div>
+        </div>
+      
+    </div>
+  </div>
+
+  
+</aside>
+
           
           <section id="main"><article id="post-从0开始的Hexo博客搭建教程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
@@ -324,7 +410,15 @@
       
     </div>
     <footer class="article-footer">
-      
+      <blockquote class="article-copyright">
+    <p><strong>本文作者：</strong>Pamper @ Pamperの避难所</p>
+    <p><strong>本文链接：</strong><a href="https://pamperkyumi.github.io/2024/08/24/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">https://pamperkyumi.github.io/2024/08/24/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</a></p>
+    
+    
+    
+    <p><strong>本文版权：</strong>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh"><span class="icon-creative-commons"></span>BY-NC-SA</a> 许可协议。转载请注明出处！</p>
+    <span class="icon-creative-commons article-copyright-bg"></span>
+  </blockquote>
       
         <a data-aos="zoom-in" href="/2024/08/24/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/#comments" class="article-comment-link">
           <span class="post-comments-count valine-comment-count" data-xid="/2024/08/24/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E7%9A%84Hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" itemprop="commentCount"></span>
@@ -392,83 +486,6 @@
 
 
 </section>
-          
-            <aside id="sidebar">
-  <div class="sidebar-wrapper wrap-sticky">
-    <div class="sidebar-wrap" data-aos="fade-up">
-      
-        <div class="sidebar-toc-sidebar"><div class="sidebar-toc">
-  <h3 class="toc-title">文章目录</h3>
-  <div class="sidebar-toc-wrapper toc-div-class" >
-      
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#0%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text"> 0.前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E5%AE%89%E8%A3%85git%E5%92%8Cnodejs"><span class="toc-number">2.</span> <span class="toc-text"> 1.安装Git和Node.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E5%AE%89%E8%A3%85hexo"><span class="toc-number">3.</span> <span class="toc-text"> 2.安装hexo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E6%8C%91%E9%80%89%E5%96%9C%E6%AC%A2%E7%9A%84%E4%B8%BB%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text"> 3.挑选喜欢的主题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6"><span class="toc-number">5.</span> <span class="toc-text"> 4.配置文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E6%9C%AC%E5%9C%B0%E9%83%A8%E7%BD%B2%E6%9F%A5%E7%9C%8B"><span class="toc-number">6.</span> <span class="toc-text"> 5.本地部署查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E9%85%8D%E7%BD%AEssh%E5%AF%86%E9%92%A5"><span class="toc-number">7.</span> <span class="toc-text"> 6.配置SSH密钥</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E9%83%A8%E7%BD%B2%E5%88%B0github-pages"><span class="toc-number">8.</span> <span class="toc-text"> 7.部署到Github Pages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8%E6%AC%A3%E8%B5%8F%E4%BD%A0%E7%9A%84blog"><span class="toc-number">9.</span> <span class="toc-text"> 8.欣赏你的blog</span></a></li></ol>
-      
-  </div>
-</div>
-</div>
-        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
-  <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Pamper" class="lazyload">
-  <div class="sidebar-author-name">Pamper</div>
-  <div class="sidebar-description">你也要加油哦~</div>
-</div>
-<div class="sidebar-state">
-  <div class="sidebar-state-article">
-    <div>文章</div>
-    <div class="sidebar-state-number">7</div>
-  </div>
-  <div class="sidebar-state-category">
-    <div>分类</div>
-    <div class="sidebar-state-number">0</div>
-  </div>
-  <div class="sidebar-state-tag">
-    <div>标签</div>
-    <div class="sidebar-state-number">7</div>
-  </div>
-</div>
-<div class="sidebar-social">
-  
-</div>
-<div class="sidebar-menu">
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/" aria-label="首页"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">首页</div>
-    </div>
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/archives" aria-label="归档"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">归档</div>
-    </div>
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/about" aria-label="关于"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">关于</div>
-    </div>
-  
-    <div class="sidebar-menu-link-wrap">
-      <a class="sidebar-menu-link-dummy" href="/friend" aria-label="友链"></a>
-      <div class="sidebar-menu-icon icon-taichi"></div>
-      <div class="sidebar-menu-link">友链</div>
-    </div>
-  
-</div>
-</div>
-      
-      
-        <div class="sidebar-btn-wrapper" style="position:static">
-          <div class="sidebar-toc-btn current"></div>
-          <div class="sidebar-common-btn"></div>
-        </div>
-      
-    </div>
-  </div>
-
-  
-</aside>
-
           
         </div>
         <footer id="footer">
