@@ -1,4 +1,4 @@
-const VERSION = "1759656115528";const preCache = ["/Pamperkyumi.github.io/images/taichi.png","/Pamperkyumi.github.io/images/banner.webp","/Pamperkyumi.github.io/css/loader.css","/Pamperkyumi.github.io/css/style.css","/Pamperkyumi.github.io/js/script.js"];const cacheDomain = [
+const VERSION = "1759657849616";const preCache = ["/images/taichi.png","/images/banner.webp","/css/loader.css","/css/style.css","/js/script.js"];const cacheDomain = [
   "fonts.googleapis.com",
   "npm.webcache.cn",
   "unpkg.com",
