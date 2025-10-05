@@ -133,14 +133,17 @@ body [data-aos='zoom-in'] {
     transform: translateX(-100px);
   }
 }
-.article-entry h1 {
+.article-entry h1,
+.vcontent h1 {
   font-size: 2em;
 }
-.article-entry h2 {
+.article-entry h2,
+.vcontent h2 {
   font-size: 1.5em;
   position: relative;
 }
-.article-entry h2:before {
+.article-entry h2:before,
+.vcontent h2:before {
   content: "";
   position: absolute;
   width: 100%;
@@ -149,7 +152,8 @@ body [data-aos='zoom-in'] {
   box-sizing: unset;
   transition: 1s;
 }
-.article-entry h2:after {
+.article-entry h2:after,
+.vcontent h2:after {
   content: "";
   position: absolute;
   background: var(--color-h2-after);
@@ -161,23 +165,29 @@ body [data-aos='zoom-in'] {
   box-shadow: 0 2px 12px var(--color-red-6-shadow);
   transition: 0.3s;
 }
-.article-entry h2:hover:after {
+.article-entry h2:hover:after,
+.vcontent h2:hover:after {
   width: 3em;
 }
-.article-entry h3 {
+.article-entry h3,
+.vcontent h3 {
   font-size: 1.3em;
 }
-.article-entry h4 {
+.article-entry h4,
+.vcontent h4 {
   font-size: 1.2em;
 }
-.article-entry h5 {
+.article-entry h5,
+.vcontent h5 {
   font-size: 1em;
 }
-.article-entry h6 {
+.article-entry h6,
+.vcontent h6 {
   font-size: 1em;
   color: var(--grey-9);
 }
-.article-entry hr {
+.article-entry hr,
+.vcontent hr {
   margin: 10px 0;
   opacity: 0.3;
   height: 4px;
@@ -188,57 +198,78 @@ body [data-aos='zoom-in'] {
   filter: drop-shadow(0px 0px 2px var(--red-1));
   transition: opacity 0.3s, color 0.3s;
 }
-.article-entry hr:hover {
+.article-entry hr:hover,
+.vcontent hr:hover {
   opacity: 0.5;
 }
-.article-entry strong {
+.article-entry strong,
+.vcontent strong {
   font-weight: bold;
 }
 .article-entry em,
-.article-entry cite {
+.vcontent em,
+.article-entry cite,
+.vcontent cite {
   font-style: italic;
 }
 .article-entry sup,
-.article-entry sub {
+.vcontent sup,
+.article-entry sub,
+.vcontent sub {
   font-size: 0.75em;
   line-height: 0;
   position: relative;
   vertical-align: baseline;
 }
-.article-entry sup {
+.article-entry sup,
+.vcontent sup {
   top: -0.5em;
 }
-.article-entry sub {
+.article-entry sub,
+.vcontent sub {
   bottom: -0.2em;
 }
-.article-entry small {
+.article-entry small,
+.vcontent small {
   font-size: 0.85em;
 }
 .article-entry acronym,
-.article-entry abbr {
+.vcontent acronym,
+.article-entry abbr,
+.vcontent abbr {
   text-decoration: none;
   border-bottom: 1px dotted;
 }
 .article-entry ul,
+.vcontent ul,
 .article-entry ol,
-.article-entry dl {
+.vcontent ol,
+.article-entry dl,
+.vcontent dl {
   margin: 0 20px;
   line-height: 1.8em;
 }
 .article-entry ul ul,
+.vcontent ul ul,
 .article-entry ol ul,
+.vcontent ol ul,
 .article-entry ul ol,
-.article-entry ol ol {
+.vcontent ul ol,
+.article-entry ol ol,
+.vcontent ol ol {
   margin-top: 0;
   margin-bottom: 0;
 }
-.article-entry ul {
+.article-entry ul,
+.vcontent ul {
   list-style: disc;
 }
-.article-entry ol {
+.article-entry ol,
+.vcontent ol {
   list-style: decimal;
 }
-.article-entry dt {
+.article-entry dt,
+.vcontent dt {
   font-weight: bold;
 }
 @font-face {
@@ -1578,6 +1609,158 @@ button {
 #comments .comment-header .comment-selector-wrap .selector-item.active {
   color: #fff;
   background-color: var(--red-1);
+}
+.vcontent {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+[data-theme="dark"] .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
+.dark .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
+.theme__dark .v[data-class="v"] .vcards .vcard .vcontent.expand::after,
+.night .v[data-class="v"] .vcards .vcard .vcontent.expand::after {
+  background: var(--color-wrap) !important;
+}
+[data-theme="dark"] .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.dark .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.theme__dark .v[data-class="v"] .vcards .vcard .vcontent.expand::before,
+.night .v[data-class="v"] .vcards .vcard .vcontent.expand::before {
+  --valine-linear-gradient-color: color-mix(in srgb, var(--color-wrap) 10%, transparent);
+  background: linear-gradient(180deg, var(--valine-linear-gradient-color), var(--color-wrap)) !important;
+}
+.v[data-class="v"] .vcards .vcard .vh .vmeta .vat {
+  color: var(--red-1) !important;
+}
+.vcontent {
+  color: var(--color-default) !important;
+}
+.vcontent p,
+.vcontent table {
+  line-height: 1.8em;
+  margin: 1.2em 0;
+}
+.vcontent h1,
+.vcontent h2,
+.vcontent h3,
+.vcontent h4,
+.vcontent h5,
+.vcontent h6 {
+  font-weight: bold;
+  line-height: 1.2em;
+  margin: 1.2em 0 0.8em;
+}
+.vcontent h2 {
+  margin-bottom: 40px;
+}
+.vcontent a {
+  color: var(--color-link);
+  text-decoration: none;
+  word-break: break-word;
+}
+.vcontent a:hover {
+  text-decoration: underline;
+}
+.vcontent ul,
+.vcontent ol,
+.vcontent dl {
+  margin-top: 1.2em;
+  margin-bottom: 1.2em;
+}
+.vcontent li:hover::marker {
+  transition: color 0.2s;
+  color: var(--red-1);
+}
+.vcontent img,
+.vcontent video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+.vcontent table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.vcontent th {
+  font-weight: bold;
+  border-bottom: 3px solid var(--color-border);
+  padding-bottom: 0.5em;
+}
+.vcontent td {
+  border-bottom: 1px solid var(--color-border);
+  padding: 10px 0;
+}
+.vcontent blockquote {
+  background: var(--red-5-5);
+  border-left: 6px var(--red-4) solid !important;
+  margin: 1.2em 0 !important;
+  border-radius: 10px;
+  transition: 0.3s;
+  padding: 1px 10px !important;
+  box-shadow: var(--shadow-meta);
+}
+.vcontent blockquote:hover {
+  box-shadow: var(--shadow-meta-hover);
+}
+.vcontent blockquote footer {
+  font-size: 14px;
+  margin: 1.8em 0;
+}
+.vcontent blockquote footer cite:before {
+  content: "—";
+  padding: 0 0.5em;
+}
+.vcontent details {
+  padding: 18px 12px;
+  border-radius: 10px;
+  background-color: var(--red-5-5);
+  box-shadow: var(--shadow-meta);
+  transition: 0.3s;
+}
+.vcontent details:hover {
+  box-shadow: var(--shadow-meta-hover);
+}
+.vcontent summary {
+  font-size: 1.1em;
+  font-weight: bold;
+  cursor: var(--cursor-pointer) !important;
+  padding: 8px;
+  border: none;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.vcontent summary:hover {
+  background-color: var(--red-5);
+}
+.vcontent details[open] summary {
+  background-color: var(--red-5);
+}
+.vcontent details[open] summary:hover {
+  background-color: var(--red-5);
+}
+.vcontent details p {
+  margin: 20px 0 0;
+  padding: 10px;
+  background-color: var(--color-footer-background);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+.vcontent hr {
+  border-style: none !important;
+  background-color: transparent !important;
+}
+.vcontent pre,
+.vcontent code {
+  font-family: $font-code !important;
+  font-size: 95% !important;
+  transition: 0.3s;
+  word-break: break-word;
+}
+.vcontent code:not(pre code) {
+  background: var(--color-code-background) !important;
+  padding: 1px 5px !important;
+  border-radius: 5px !important;
+  color: var(--color-link) !important;
 }
 .archives-outer-wrap {
   background: var(--color-wrap);
