@@ -1,6 +1,5 @@
 class BlogTranslator {
   constructor() {
-    // 确保使用正确的函数 URL
     this.functionUrl = 'https://gqfserpkchbobfigunzc.supabase.co/functions/v1/blog-translator';
     this.isTranslating = false;
     this.currentLang = 'zh';
@@ -47,7 +46,7 @@ class BlogTranslator {
     }
   }
 
-  // 主要的翻译方法 - 保持简单可靠
+  // 基于标记的翻译 - 修复执行顺序
   async translateArticle(targetLang = 'en') {
     const articleElement = this.findArticleElement();
     if (!articleElement) {
@@ -57,32 +56,139 @@ class BlogTranslator {
 
     // 保存原始内容
     const originalHTML = articleElement.innerHTML;
-    const originalText = articleElement.textContent;
     
+    // 先提取标记内容（在显示加载状态之前）
+    const translationResult = this.extractMarkedContent(articleElement);
+    
+    if (!translationResult.contentToTranslate || translationResult.matchCount === 0) {
+      this.showMessage('未找到可翻译的内容。请确保在文章中使用了 <!-- TRANSLATE_START --> 和 <!-- TRANSLATE_END --> 标记。', 'error');
+      return; // 直接返回，不显示加载状态
+    }
+
     // 显示加载状态
     this.showLoadingState(articleElement);
 
-    const translatedText = await this.translateText(originalText, targetLang);
-    
-    if (translatedText) {
-      // 简单替换，保持基本的段落结构
-      articleElement.innerHTML = this.formatTranslatedText(translatedText);
-      this.currentLang = targetLang;
-      this.updateButtonText(targetLang);
-      this.showMessage('翻译完成!', 'success');
+    try {
+      // 翻译内容
+      const translatedContent = await this.translateText(translationResult.contentToTranslate, targetLang);
       
-      // 保存原始HTML以便恢复
-      articleElement.dataset.originalHtml = originalHTML;
-      
-      // 显示恢复按钮
-      const restoreBtn = document.getElementById('restore-btn');
-      if (restoreBtn) {
-        restoreBtn.style.display = 'block';
+      if (translatedContent) {
+        // 重新构建HTML，将翻译内容放回标记之间
+        const newHTML = this.replaceMarkedContent(originalHTML, translatedContent, translationResult.markers);
+        articleElement.innerHTML = newHTML;
+        
+        this.currentLang = targetLang;
+        this.updateButtonText(targetLang);
+        this.showMessage('翻译完成!', 'success');
+        
+        // 保存原始HTML以便恢复
+        articleElement.dataset.originalHtml = originalHTML;
+        
+        // 显示恢复按钮
+        const restoreBtn = document.getElementById('restore-btn');
+        if (restoreBtn) {
+          restoreBtn.style.display = 'block';
+        }
+      } else {
+        // 恢复原文
+        articleElement.innerHTML = originalHTML;
       }
-    } else {
-      // 恢复原文
+    } catch (error) {
+      console.error('Translation error:', error);
       articleElement.innerHTML = originalHTML;
     }
+  }
+
+  // 提取标记之间的内容 - 使用HTML注释标记
+  extractMarkedContent(articleElement) {
+    const html = articleElement.innerHTML;
+    console.log('=== 原始 HTML 内容 ===');
+    console.log(html);
+    console.log('=== 原始 HTML 内容结束 ===');
+    
+    // 使用HTML注释作为标记
+    const translationRegex = /<!--\s*TRANSLATE_START\s*-->([\s\S]*?)<!--\s*TRANSLATE_END\s*-->/gi;
+    
+    const markers = [];
+    let contentToTranslate = '';
+    let matchCount = 0;
+    
+    // 查找所有标记区域
+    let match;
+    while ((match = translationRegex.exec(html)) !== null) {
+      matchCount++;
+      console.log(`找到第 ${matchCount} 个匹配:`, {
+        fullMatch: match[0],
+        content: match[1],
+        startIndex: match.index,
+        endIndex: match.index + match[0].length
+      });
+      
+      const fullMatch = match[0];
+      const content = match[1];
+      const startIndex = match.index;
+      const endIndex = startIndex + fullMatch.length;
+      
+      markers.push({
+        fullMatch,
+        content,
+        startIndex,
+        endIndex
+      });
+      
+      contentToTranslate += content + '\n\n';
+    }
+    
+    console.log(`总共找到 ${matchCount} 个翻译标记区域`);
+    console.log('要翻译的内容:', contentToTranslate);
+    
+    return {
+      contentToTranslate: contentToTranslate.trim(),
+      markers,
+      matchCount
+    };
+  }
+
+  // 将翻译后的内容替换回标记区域
+  replaceMarkedContent(originalHtml, translatedContent, markers) {
+    let result = originalHtml;
+    let translatedParts = this.splitTranslatedContent(translatedContent, markers.length);
+    
+    // 从后往前替换，避免索引变化
+    for (let i = markers.length - 1; i >= 0; i--) {
+      const marker = markers[i];
+      const translatedPart = translatedParts[i] || '';
+      
+      // 构建新的标记区域
+      const newContent = `<!-- TRANSLATE_START -->${translatedPart}<!-- TRANSLATE_END -->`;
+      
+      // 替换原标记区域
+      result = result.substring(0, marker.startIndex) + 
+               newContent + 
+               result.substring(marker.endIndex);
+    }
+    
+    return result;
+  }
+
+  // 将翻译后的内容分割成与标记数量相同的部分
+  splitTranslatedContent(translatedContent, partCount) {
+    if (partCount <= 1) {
+      return [translatedContent];
+    }
+    
+    const paragraphs = translatedContent.split(/\n\s*\n/).filter(p => p.trim());
+    const parts = [];
+    const paragraphsPerPart = Math.ceil(paragraphs.length / partCount);
+    
+    for (let i = 0; i < partCount; i++) {
+      const start = i * paragraphsPerPart;
+      const end = Math.min(start + paragraphsPerPart, paragraphs.length);
+      const partParagraphs = paragraphs.slice(start, end);
+      parts.push(partParagraphs.join('\n\n'));
+    }
+    
+    return parts;
   }
 
   // 恢复原文
@@ -104,7 +210,6 @@ class BlogTranslator {
 
   // 查找文章内容元素
   findArticleElement() {
-    // 尝试常见的选择器
     const selectors = [
       'article',
       '.post-content',
@@ -114,7 +219,8 @@ class BlogTranslator {
       '.content',
       'main',
       '.post-body',
-      '.article-content'
+      '.article-content',
+      '.e-content'  // 添加你的博客特有的选择器
     ];
     
     for (const selector of selectors) {
@@ -122,7 +228,6 @@ class BlogTranslator {
       if (element) return element;
     }
     
-    // 如果都没找到，返回第一个包含大量文本的元素
     return document.body;
   }
 
@@ -136,20 +241,8 @@ class BlogTranslator {
     `;
   }
 
-  // 格式化翻译后的文本
-  formatTranslatedText(text) {
-    // 基本的段落格式化
-    const paragraphs = text.split('\n\n').filter(p => p.trim());
-    if (paragraphs.length > 1) {
-      return paragraphs.map(p => `<p>${p}</p>`).join('');
-    } else {
-      return `<p>${text}</p>`;
-    }
-  }
-
   // 显示消息
   showMessage(message, type = 'info') {
-    // 移除现有的消息
     const existingMessage = document.getElementById('translation-message');
     if (existingMessage) {
       existingMessage.remove();
@@ -176,7 +269,6 @@ class BlogTranslator {
 
     document.body.appendChild(messageEl);
 
-    // 3秒后自动消失
     setTimeout(() => {
       if (messageEl.parentNode) {
         messageEl.remove();
@@ -201,7 +293,6 @@ class BlogTranslator {
 
 // 添加翻译和恢复按钮到页面
 function addTranslateButton() {
-  // 如果按钮已存在，则不再添加
   if (document.getElementById('translate-btn')) {
     return;
   }
@@ -251,7 +342,7 @@ function addTranslateButton() {
     font-size: 12px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     transition: all 0.3s ease;
-    display: none; // 默认隐藏
+    display: none;
   `;
 
   // 悬停效果
