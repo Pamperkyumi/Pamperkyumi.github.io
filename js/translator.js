@@ -1,8 +1,10 @@
 // 翻译功能实现
+
 class BlogTranslator {
   constructor() {
-    this.functionUrl = 'https://supabase.com/dashboard/project/gqfserpkchbobfigunzc/functions';
+    this.functionUrl = 'https://gqfserpkchbobfigunzc.supabase.co/functions/v1/blog-translator';
     this.isTranslating = false;
+    this.currentLang = 'zh';
   }
 
   async translateText(text, targetLang = 'en') {
