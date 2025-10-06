@@ -61,7 +61,7 @@ class BlogTranslator {
     const translationResult = this.extractMarkedContent(articleElement);
     
     if (!translationResult.contentToTranslate || translationResult.matchCount === 0) {
-      this.showMessage('未找到可翻译的内容。请确保在文章中使用了 <!-- TRANSLATE_START --> 和 <!-- TRANSLATE_END --> 标记。', 'error');
+      this.showMessage('未找到可翻译的内容喵,也许此篇文章不需要翻译喵.', 'error');
       return; // 直接返回，不显示加载状态
     }
 
