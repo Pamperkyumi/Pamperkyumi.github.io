@@ -46,14 +46,17 @@ class BlogTranslator {
     }
   }
 
-  // 基于标记的翻译 - 修复执行顺序
-  async translateArticle(targetLang = 'en') {
+  // 自动检测语言并翻译
+  async translateArticle() {
     const articleElement = this.findArticleElement();
     if (!articleElement) {
       this.showMessage('未找到文章内容', 'error');
       return;
     }
 
+    // 检测当前语言并确定目标语言
+    const targetLang = this.detectLanguage(articleElement);
+    
     // 保存原始内容
     const originalHTML = articleElement.innerHTML;
     
@@ -66,7 +69,7 @@ class BlogTranslator {
     }
 
     // 显示加载状态
-    this.showLoadingState(articleElement);
+    this.showLoadingState(articleElement, targetLang);
 
     try {
       // 翻译内容
@@ -78,8 +81,7 @@ class BlogTranslator {
         articleElement.innerHTML = newHTML;
         
         this.currentLang = targetLang;
-        this.updateButtonText(targetLang);
-        this.showMessage('翻译完成!', 'success');
+        this.showMessage(`翻译完成! (${targetLang === 'en' ? '中→英' : '英→中'})`, 'success');
         
         // 保存原始HTML以便恢复
         articleElement.dataset.originalHtml = originalHTML;
@@ -96,6 +98,25 @@ class BlogTranslator {
     } catch (error) {
       console.error('Translation error:', error);
       articleElement.innerHTML = originalHTML;
+    }
+  }
+
+  // 检测文章语言
+  detectLanguage(articleElement) {
+    // 获取文章文本内容进行分析
+    const text = articleElement.innerText || articleElement.textContent;
+    
+    // 简单的语言检测逻辑
+    // 中文字符检测
+    const chineseCharCount = (text.match(/[\u4e00-\u9fa5]/g) || []).length;
+    // 英文字母检测
+    const englishCharCount = (text.match(/[a-zA-Z]/g) || []).length;
+    
+    // 如果中文字符数量明显多于英文字符，则认为是中文文章，翻译成英文
+    if (chineseCharCount > englishCharCount * 2) {
+      return 'en'; // 中文→英文
+    } else {
+      return 'zh'; // 英文→中文
     }
   }
 
@@ -197,7 +218,6 @@ class BlogTranslator {
     if (articleElement && articleElement.dataset.originalHtml) {
       articleElement.innerHTML = articleElement.dataset.originalHtml;
       this.currentLang = 'zh';
-      this.updateButtonText('zh');
       this.showMessage('已恢复原文', 'info');
       
       // 隐藏恢复按钮
@@ -232,10 +252,11 @@ class BlogTranslator {
   }
 
   // 显示加载状态
-  showLoadingState(element) {
+  showLoadingState(element, targetLang) {
+    const direction = targetLang === 'en' ? '中→英' : '英→中';
     element.innerHTML = `
       <div style="text-align: center; padding: 2rem; color: #666;">
-        <div style="margin-bottom: 1rem;">🚀 AI 正在翻译中...</div>
+        <div style="margin-bottom: 1rem;">🚀 AI 正在翻译中 (${direction})...</div>
         <div style="font-size: 0.9rem; opacity: 0.7;">请耐心等待，这可能需要一些时间</div>
       </div>
     `;
@@ -275,20 +296,6 @@ class BlogTranslator {
       }
     }, 3000);
   }
-
-  // 更新按钮文本
-  updateButtonText(targetLang) {
-    const button = document.getElementById('translate-btn');
-    if (button) {
-      if (targetLang === 'en') {
-        button.innerHTML = '🔤 翻译成中文';
-        button.setAttribute('data-target-lang', 'zh');
-      } else {
-        button.innerHTML = '🌐 翻译成英文';
-        button.setAttribute('data-target-lang', 'en');
-      }
-    }
-  }
 }
 
 // 添加翻译和恢复按钮到页面
@@ -308,15 +315,14 @@ function addTranslateButton() {
     gap: 10px;
   `;
 
-  // 翻译按钮
+  // 翻译按钮 - 简化为"翻译"二字
   const translateBtn = document.createElement('button');
   translateBtn.id = 'translate-btn';
-  translateBtn.innerHTML = '🌐 翻译成英文';
-  translateBtn.setAttribute('data-target-lang', 'en');
+  translateBtn.innerHTML = '翻译';
   
   translateBtn.style.cssText = `
     padding: 12px 18px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #ff0000ff 0%, #ff6200ff 100%);
     color: white;
     border: none;
     border-radius: 25px;
@@ -328,13 +334,13 @@ function addTranslateButton() {
     backdrop-filter: blur(10px);
   `;
 
-  // 恢复按钮
+  // 恢复按钮 - 保持不变
   const restoreBtn = document.createElement('button');
   restoreBtn.id = 'restore-btn';
-  restoreBtn.innerHTML = '↩️ 恢复原文';
+  restoreBtn.innerHTML = '恢复原文';
   restoreBtn.style.cssText = `
     padding: 10px 16px;
-    background: #95a5a6;
+    background: linear-gradient(135deg,rgba(250, 96, 0, 1)f 0%, #ffcc00ff 100%);
     color: white;
     border: none;
     border-radius: 20px;
@@ -360,10 +366,9 @@ function addTranslateButton() {
     });
   });
 
-  // 点击事件
+  // 点击事件 - 不再需要指定目标语言
   translateBtn.addEventListener('click', function() {
-    const targetLang = this.getAttribute('data-target-lang');
-    translator.translateArticle(targetLang);
+    translator.translateArticle();
   });
 
   restoreBtn.addEventListener('click', function() {

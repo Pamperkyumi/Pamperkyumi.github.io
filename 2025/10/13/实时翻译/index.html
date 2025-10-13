@@ -17,7 +17,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)","zh-CN":"复制成功 (*^▽^*)","zh-TW":"複製成功 (*^▽^*)","ja":"コピー成功 (*^▽^*)","pt-BR":"Copiado com sucesso (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-TW":"複製失敗 (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ","pt-BR":"Falha ao copiar (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://Pamperkyumi.github.io';</script>
   
   <title>
-    Hello World |
+    实时翻译功能的实现 |
     
     Pamperの第二个避难所
   </title>
@@ -35,17 +35,17 @@
 
   
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use. 纪念一下此避难所复活日期">
+    <meta name="description" content="对于Ai翻译功能实现的一些小思路实现此功能所需要 **DeepSeek API  **  (提供不同语言的翻译能力) Supabase 账户（用作后端数据库处理) Supabase Edge Functions（作为后端API，调用DeepSeek） 前端 (你的博客)(监听用户请求，调用Supabase函数)  可选功能喵可用Supabase建立一个表，将每一次的翻译结果缓存，以节省Token和">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://pamperkyumi.github.io/2025/10/05/hello-world/index.html">
+<meta property="og:title" content="实时翻译功能的实现">
+<meta property="og:url" content="http://pamperkyumi.github.io/2025/10/13/%E5%AE%9E%E6%97%B6%E7%BF%BB%E8%AF%91/index.html">
 <meta property="og:site_name" content="Pamperの第二个避难所">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation to learn how to use. 纪念一下此避难所复活日期">
+<meta property="og:description" content="对于Ai翻译功能实现的一些小思路实现此功能所需要 **DeepSeek API  **  (提供不同语言的翻译能力) Supabase 账户（用作后端数据库处理) Supabase Edge Functions（作为后端API，调用DeepSeek） 前端 (你的博客)(监听用户请求，调用Supabase函数)  可选功能喵可用Supabase建立一个表，将每一次的翻译结果缓存，以节省Token和">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-05T08:54:00.000Z">
-<meta property="article:modified_time" content="2025-10-05T10:37:02.423Z">
+<meta property="article:published_time" content="2025-10-13T13:46:57.000Z">
+<meta property="article:modified_time" content="2025-10-13T15:05:35.638Z">
 <meta property="article:author" content="Pamper_PRMS">
-<meta property="article:tag" content="-Pamper -Pamper_PRMS -Pamper的狗窝喵">
+<meta property="article:tag" content="-Ai翻译喵">
 <meta name="twitter:card" content="summary">
   
   
@@ -185,16 +185,8 @@
 </div>
 <header id="header">
   
-    
-      
-        <picture>
-          
-        </picture>
-        
-          <img  fetchpriority="high" src="/images/banner.webp" alt="Hello World">
-        
-      
-    
+    <picture></picture>
+    <img  fetchpriority="high" src="https://img.cdn1.vip/i/68e29b90b6718_1759681424.webp" alt="实时翻译功能的实现">
   
   <div id="header-outer">
     <div id="header-title">
@@ -202,7 +194,7 @@
         
         
           <span id="logo">
-            <h1 data-aos="slide-up">Hello World</h1>
+            <h1 data-aos="slide-up">实时翻译功能的实现</h1>
           </span>
         
       
@@ -232,7 +224,7 @@
           <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
   
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8EAi%E7%BF%BB%E8%AF%91%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%80%9D%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">对于Ai翻译功能实现的一些小思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%AD%A4%E5%8A%9F%E8%83%BD%E6%89%80%E9%9C%80%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">实现此功能所需要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%80%89%E5%8A%9F%E8%83%BD%E5%96%B5"><span class="toc-number">1.2.</span> <span class="toc-text">可选功能喵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B1%E4%BA%8E%E6%88%91%E5%BE%88%E6%87%92-%E5%9B%A0%E4%B8%BA%E4%B9%9F%E6%B2%A1%E4%BA%BA%E7%9C%8B%EF%BC%89-%E6%89%80%E4%BB%A5%E6%88%91%E5%8F%AA%E5%8F%99%E8%BF%B0%E4%B8%80%E4%B8%8B%E5%A4%A7%E6%A6%82%E7%9A%84%E6%96%B9%E6%B3%95%E5%90%A7%E3%80%82"><span class="toc-number">1.3.</span> <span class="toc-text">由于我很懒(因为也没人看）,所以我只叙述一下大概的方法吧。</span></a></li></ol></li></ol>
   
 </div>
 </div>
@@ -325,13 +317,13 @@
   
 </aside>
 
-          <section id="main"><article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="Source/_post-实时翻译" class="h-entry article article-type-Source/_post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link icon-calendar" data-aos="zoom-in">
-    <time datetime="2025-10-05T08:54:00.000Z" itemprop="datePublished">2025-10-05</time>
-    <time style="display: none;" id="post-update-time">2025-10-05</time>
+    <time datetime="2025-10-13T13:46:57.000Z" itemprop="datePublished">2025-10-13</time>
+    <time style="display: none;" id="post-update-time">2025-10-13</time>
   </span>
   
 </div>
@@ -346,8 +338,39 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="http://zespia.tw/hexo">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="http://zespia.tw/hexo/docs">documentation</a> to learn how to use.</p>
-<p>纪念一下此避难所复活日期</p>
+        <h1 id="对于Ai翻译功能实现的一些小思路"><a href="#对于Ai翻译功能实现的一些小思路" class="headerlink" title="对于Ai翻译功能实现的一些小思路"></a>对于Ai翻译功能实现的一些小思路</h1><h2 id="实现此功能所需要"><a href="#实现此功能所需要" class="headerlink" title="实现此功能所需要"></a>实现此功能所需要</h2><ul>
+<li>**DeepSeek API  **  (提供不同语言的翻译能力)</li>
+<li><strong>Supabase 账户</strong>（用作后端数据库处理)</li>
+<li><strong>Supabase Edge Functions</strong>（作为后端API，调用DeepSeek）</li>
+<li><strong>前端 (你的博客)</strong>(监听用户请求，调用Supabase函数)</li>
+</ul>
+<h2 id="可选功能喵"><a href="#可选功能喵" class="headerlink" title="可选功能喵"></a>可选功能喵</h2><p>可用Supabase建立一个表，将每一次的翻译结果缓存，以节省Token和提升速度。</p>
+<h2 id="由于我很懒-因为也没人看）-所以我只叙述一下大概的方法吧。"><a href="#由于我很懒-因为也没人看）-所以我只叙述一下大概的方法吧。" class="headerlink" title="由于我很懒(因为也没人看）,所以我只叙述一下大概的方法吧。"></a>由于我很懒(因为也没人看）,所以我只叙述一下大概的方法吧。</h2><p>安装完Supabase之后，可以在Supabase中建立一个数据库，以缓存每一次的翻译结果，</p>
+<p>之后创建 <strong>Edge Funciton</strong>  编辑函数代码切记不要将 <strong>API</strong> 或 <strong>service_role key</strong> 直接写在代码中，可用<code>supabase secrets set</code>配置环境变量，最后只需在前端添加翻译功能即可喵</p>
+<p>如果有疑问可以通过我的联系方式找到我喵</p>
+<p>接下来对以下诗句测试一下翻译吧喵</p>
+<hr>
+<!-- TRANSLATE_START -->
+
+<p>The fountains mingle with the river</p>
+<p>And the rivers with the ocean</p>
+<p>The winds of heaven mix for ever</p>
+<p>With a sweet emotion;</p>
+<p>Nothing in the world is single;</p>
+<p>All things by a law divine</p>
+<p>In one spirit meet and mingle.</p>
+<p>Why not I with thine?—</p>
+<p>See the mountains kiss high heaven</p>
+<p>And the waves clasp one another;</p>
+<p>No sister-flower would be forgiven</p>
+<p>If it disdained its brother;</p>
+<p>And the sunlight clasps the earth</p>
+<p>And the moonbeams kiss the sea:</p>
+<p>What are all these kissings worth</p>
+<p>If thou kiss not me?</p>
+<!-- TRANSLATE_END -->
+
+<p>所以~ 我喜欢你喵.宝宝,我喜欢你，我们要在一起~ </p>
 
       
     </div>
@@ -356,8 +379,8 @@
       
       
       
-        <a data-aos="zoom-in" href="/2025/10/05/hello-world/#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count" data-xid="/2025/10/05/hello-world/" itemprop="commentCount"></span>
+        <a data-aos="zoom-in" href="/2025/10/13/%E5%AE%9E%E6%97%B6%E7%BF%BB%E8%AF%91/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2025/10/13/%E5%AE%9E%E6%97%B6%E7%BF%BB%E8%AF%91/" itemprop="commentCount"></span>
           留言
         </a>
       
@@ -366,26 +389,28 @@
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Ai%E7%BF%BB%E8%AF%91%E5%96%B5/" rel="tag">-Ai翻译喵</a></li></ul>
+
 
     </footer>
   </div>
   
   <nav id="article-nav" data-aos="fade-up">
     
-      
-      <div class="article-nav-link-wrap left">
-        
-          <img data-src="https://img.cdn1.vip/i/68e29b90b6718_1759681424.webp" data-sizes="auto" alt="翻译测试喵" class="lazyload">
-        
-        <a href="/2025/10/06/%E7%BF%BB%E8%AF%91%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"></a>
-        <div class="article-nav-caption">前一篇</div>
-        <h3 class="article-nav-title">
-          
-            翻译测试喵
-          
-        </h3>
-      </div>
     
+    
+    <div class="article-nav-link-wrap right">
+      
+        <img data-src="https://img.cdn1.vip/i/68e29b90b6718_1759681424.webp" data-sizes="auto" alt="翻译测试喵" class="lazyload">
+      
+      <a href="/2025/10/06/%E7%BF%BB%E8%AF%91%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+        
+          翻译测试喵
+        
+      </h3>
+    </div>
     
   </nav>
 
@@ -490,7 +515,7 @@
         <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
 <div class="sidebar-toc-wrapper toc-div-class" >
   
-    
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AF%B9%E4%BA%8EAi%E7%BF%BB%E8%AF%91%E5%8A%9F%E8%83%BD%E5%AE%9E%E7%8E%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E5%B0%8F%E6%80%9D%E8%B7%AF"><span class="toc-number">1.</span> <span class="toc-text">对于Ai翻译功能实现的一些小思路</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E6%AD%A4%E5%8A%9F%E8%83%BD%E6%89%80%E9%9C%80%E8%A6%81"><span class="toc-number">1.1.</span> <span class="toc-text">实现此功能所需要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%AF%E9%80%89%E5%8A%9F%E8%83%BD%E5%96%B5"><span class="toc-number">1.2.</span> <span class="toc-text">可选功能喵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%B1%E4%BA%8E%E6%88%91%E5%BE%88%E6%87%92-%E5%9B%A0%E4%B8%BA%E4%B9%9F%E6%B2%A1%E4%BA%BA%E7%9C%8B%EF%BC%89-%E6%89%80%E4%BB%A5%E6%88%91%E5%8F%AA%E5%8F%99%E8%BF%B0%E4%B8%80%E4%B8%8B%E5%A4%A7%E6%A6%82%E7%9A%84%E6%96%B9%E6%B3%95%E5%90%A7%E3%80%82"><span class="toc-number">1.3.</span> <span class="toc-text">由于我很懒(因为也没人看）,所以我只叙述一下大概的方法吧。</span></a></li></ol></li></ol>
   
 </div>
 </div>
@@ -646,14 +671,14 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Pamper_PRMS",
-          title: "Hello World",
-          url: "http://pamperkyumi.github.io/2025/10/05/hello-world/",
+          title: "实时翻译功能的实现",
+          url: "http://pamperkyumi.github.io/2025/10/13/%E5%AE%9E%E6%97%B6%E7%BF%BB%E8%AF%91/",
           excerpt: "",
           description: "",
-          stripContent: "Welcome to Hexo! This is your very first post. Check documentation to learn how to use. 纪念一下此避难所复活日期 ",
-          date: "Sun Oct 05 2025 16:54:00 GMT+0800",
-          updated: "Sun Oct 05 2025 18:37:02 GMT+0800",
-          cover: "/images/banner.webp",
+          stripContent: "对于Ai翻译功能实现的一些小思路实现此功能所需要 **DeepSeek API  **  (提供不同语言的翻译能力) Supabase 账户（用作后端数据库处理) Supabase Edge Functions（作为后端API，调用DeepSeek） 前端 (你的博客)(监听用户请求，调用Supabase函数)  可选功能喵可用Supabase建立一个表，将每一次的翻译结果缓存，以节省Token和提升速度。 由于我很懒(因为也没人看）,所以我只叙述一下大概的方法吧。安装完Supabase之后，可",
+          date: "Mon Oct 13 2025 21:46:57 GMT+0800",
+          updated: "Mon Oct 13 2025 23:05:35 GMT+0800",
+          cover: "https://img.cdn1.vip/i/68e29b90b6718_1759681424.webp",
         };
       </script>
        
