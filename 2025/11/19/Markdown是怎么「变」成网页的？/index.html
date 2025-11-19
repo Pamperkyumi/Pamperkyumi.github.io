@@ -17,7 +17,7 @@
   <script>window.REIMU_CONFIG = {};window.REIMU_CONFIG.icon_font = '4552607_4k4bc36ef96';window.REIMU_CONFIG.clipboard_tips = {"success":{"en":"Copy successfully (*^▽^*)","zh-CN":"复制成功 (*^▽^*)","zh-TW":"複製成功 (*^▽^*)","ja":"コピー成功 (*^▽^*)","pt-BR":"Copiado com sucesso (*^▽^*)"},"fail":{"en":"Copy failed (ﾟ⊿ﾟ)ﾂ","zh-CN":"复制失败 (ﾟ⊿ﾟ)ﾂ","zh-TW":"複製失敗 (ﾟ⊿ﾟ)ﾂ","ja":"コピー失敗 (ﾟ⊿ﾟ)ﾂ","pt-BR":"Falha ao copiar (ﾟ⊿ﾟ)ﾂ"},"copyright":{"enable":false,"count":50,"license_type":"by-nc-sa"}};window.REIMU_CONFIG.clipboard_tips.copyright.content = '本博客所有文章除特别声明外，均采用 BY-NC-SA 许可协议。转载请注明出处！';window.REIMU_CONFIG.code_block = {"expand":true};window.REIMU_CONFIG.base = 'http://Pamperkyumi.github.io';</script>
   
   <title>
-    关于 |
+    论md文件是如何渲染到网页上中的 |
     
     Pamperの第二个避难所
   </title>
@@ -35,20 +35,19 @@
 
   
   
-    <meta name="description" content="关于我自己喵 👋自我介绍什么的太麻烦啦呜呜呜😭 一名普普通通的学生罢了 喜欢打游戏喵（除了打游戏就是咸鱼了喵 欢迎加我一起玩喵 编程语言有在认真学习喵(真的喵 我的一些联系方式喵✨   QQ 2879974569    Github Pamper_PRMS   Steam Pamper   Email PamperPRMS2024（👈友链可发email哦）   Bilibili Pamper">
-<meta property="og:type" content="website">
-<meta property="og:title" content="关于">
-<meta property="og:url" content="http://pamperkyumi.github.io/about/index.html">
+    <meta name="description" content="Markdown是怎么「变」成网页的？现在很多人都会用 Hexo、VuePress、Docsify 等工具来搭建自己的博客或文档站，只需要写写 .md 文件，然后敲几行命令，最终就能在浏览器里看到漂亮的文章页面。 但中间到底发生了什么？ 核心的一环就是：把 Markdown 文本解析成 HTML。而在 Hexo 的默认配置中，这件事就是交给一个叫 marked 的库来完成的（或者说，很多主题&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="论md文件是如何渲染到网页上中的">
+<meta property="og:url" content="http://pamperkyumi.github.io/2025/11/19/Markdown%E6%98%AF%E6%80%8E%E4%B9%88%E3%80%8C%E5%8F%98%E3%80%8D%E6%88%90%E7%BD%91%E9%A1%B5%E7%9A%84%EF%BC%9F/index.html">
 <meta property="og:site_name" content="Pamperの第二个避难所">
-<meta property="og:description" content="关于我自己喵 👋自我介绍什么的太麻烦啦呜呜呜😭 一名普普通通的学生罢了 喜欢打游戏喵（除了打游戏就是咸鱼了喵 欢迎加我一起玩喵 编程语言有在认真学习喵(真的喵 我的一些联系方式喵✨   QQ 2879974569    Github Pamper_PRMS   Steam Pamper   Email PamperPRMS2024（👈友链可发email哦）   Bilibili Pamper">
+<meta property="og:description" content="Markdown是怎么「变」成网页的？现在很多人都会用 Hexo、VuePress、Docsify 等工具来搭建自己的博客或文档站，只需要写写 .md 文件，然后敲几行命令，最终就能在浏览器里看到漂亮的文章页面。 但中间到底发生了什么？ 核心的一环就是：把 Markdown 文本解析成 HTML。而在 Hexo 的默认配置中，这件事就是交给一个叫 marked 的库来完成的（或者说，很多主题&amp;#x">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://pamperkyumi.github.io/images/banner.webp">
-<meta property="article:published_time" content="2025-10-05T15:52:00.000Z">
-<meta property="article:modified_time" content="2025-10-06T14:09:40.600Z">
+<meta property="article:published_time" content="2025-11-19T13:16:42.000Z">
+<meta property="article:modified_time" content="2025-11-19T16:46:15.389Z">
 <meta property="article:author" content="Pamper_PRMS">
-<meta property="article:tag" content="-Pamper -Pamper_PRMS -Pamper的狗窝喵 -Kecare">
+<meta property="article:tag" content="Marked">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://pamperkyumi.github.io/images/banner.webp">
   
   
     <link rel="alternate" href="/atom.xml" title="Pamperの第二个避难所" type="application/atom+xml">
@@ -188,11 +187,13 @@
 <header id="header">
   
     
-      <picture>
-        
-      </picture>
       
-        <img  fetchpriority="high" src="/images/banner.webp" alt="关于">
+        <picture>
+          
+        </picture>
+        
+          <img  fetchpriority="high" src="/images/banner.webp" alt="论md文件是如何渲染到网页上中的">
+        
       
     
   
@@ -202,7 +203,7 @@
         
         
           <span id="logo">
-            <h1 data-aos="slide-up">关于</h1>
+            <h1 data-aos="slide-up">论md文件是如何渲染到网页上中的</h1>
           </span>
         
       
@@ -219,7 +220,7 @@
         <div id="content"  class="sidebar-right" >
           <aside id="sidebar">
   
-  <div class="sidebar-wrapper-container ">
+  <div class="sidebar-wrapper-container sticky">
   
     
     
@@ -228,7 +229,15 @@
   <div class="sidebar-wrapper">
     <div class="sidebar-wrap" data-aos="fade-up">
       
-        <div class="sidebar-author">
+        
+          <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+  
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown%E6%98%AF%E6%80%8E%E4%B9%88%E3%80%8C%E5%8F%98%E3%80%8D%E6%88%90%E7%BD%91%E9%A1%B5%E7%9A%84%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">Markdown是怎么「变」成网页的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Marked-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">Marked 是什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">安装与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85-%E9%9C%80%E8%A6%81Node-js%E7%8E%AF%E5%A2%83"><span class="toc-number">3.1.</span> <span class="toc-text">1.安装(需要Node.js环境)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90"><span class="toc-number">3.2.</span> <span class="toc-text">2最简单的使用例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8-marked-%E5%B9%B6%E6%B8%B2%E6%9F%93"><span class="toc-number">3.2.1.</span> <span class="toc-text">3 在网页中使用 marked 并渲染</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Marked%E5%9C%A8%E5%86%85%E9%83%A8%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">4.</span> <span class="toc-text">Marked在内部做了什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B8%B2%E6%9F%93%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">自定义渲染器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9E%E5%88%B0-Hexo%EF%BC%9AHexo-%E6%98%AF%E6%80%8E%E4%B9%88%E7%94%A8-marked-%E7%9A%84%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">回到 Hexo：Hexo 是怎么用 marked 的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%A0%E5%B7%B2%E7%BB%8F%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8Marked%E4%BA%86%EF%BC%8C%E5%BF%AB%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%A8%8B%E5%BA%8F%E5%90%A7"><span class="toc-number">7.</span> <span class="toc-text">你已经学会使用Marked了，快编写一个自己的博客搭建程序吧</span></a></li></ol>
+  
+</div>
+</div>
+          <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Pamper_PRMS" class="lazyload">
   <div class="sidebar-author-name">Pamper_PRMS</div>
   <div class="sidebar-description">每天都要努力,才能触及心中的目标喵,才能和喜欢的人在一起喵</div>
@@ -295,8 +304,16 @@
     
   
 </div>
-
+</div>
+        
       
+      
+        
+          <div class="sidebar-btn-wrapper" style="position:static">
+            <div class="sidebar-toc-btn current"></div>
+            <div class="sidebar-common-btn"></div>
+          </div>
+        
       
     </div>
   </div>
@@ -309,13 +326,13 @@
   
 </aside>
 
-          <section id="main"><article id="page-" class="h-entry article article-type-page" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+          <section id="main"><article id="source/_posts-Markdown是怎么「变」成网页的？" class="h-entry article article-type-source/_posts" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-inner" data-aos="fade-up">
     <div class="article-meta">
       <div class="article-date">
   <span class="article-date-link icon-calendar" data-aos="zoom-in">
-    <time datetime="2025-10-05T15:52:00.000Z" itemprop="datePublished">2025-10-05</time>
-    <time style="display: none;" id="post-update-time">2025-10-06</time>
+    <time datetime="2025-11-19T13:16:42.000Z" itemprop="datePublished">2025-11-19</time>
+    <time style="display: none;" id="post-update-time">2025-11-20</time>
   </span>
   
 </div>
@@ -330,36 +347,88 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
       
-        <h2 id="关于我自己喵-👋"><a href="#关于我自己喵-👋" class="headerlink" title="关于我自己喵 👋"></a>关于我自己喵 👋</h2><p>自我介绍什么的太麻烦啦呜呜呜😭</p>
-<p>一名普普通通的学生罢了</p>
-<p>喜欢打游戏喵（除了打游戏就是咸鱼了喵</p>
-<p>欢迎加我一起玩喵</p>
-<p>编程语言有在认真学习喵(真的喵</p>
-<h2 id="我的一些联系方式喵✨"><a href="#我的一些联系方式喵✨" class="headerlink" title="我的一些联系方式喵✨"></a>我的一些联系方式喵✨</h2><table>
-<thead>
-<tr>
-<th>QQ</th>
-<th>2879974569</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Github</td>
-<td><a target="_blank" rel="noopener" href="https://github.com/Pamperkyumi">Pamper_PRMS</a></td>
-</tr>
-<tr>
-<td>Steam</td>
-<td><a target="_blank" rel="noopener" href="https://steamcommunity.com/profiles/76561198358202154/">Pamper</a></td>
-</tr>
-<tr>
-<td>Email</td>
-<td><a href="mailto:PamperPRMS2024@gmail.com">PamperPRMS2024</a>（👈友链可发email哦）</td>
-</tr>
-<tr>
-<td>Bilibili</td>
-<td><a target="_blank" rel="noopener" href="https://space.bilibili.com/422742655">Pamper_PRMS</a></td>
-</tr>
-</tbody></table>
+        <h1 id="Markdown是怎么「变」成网页的？"><a href="#Markdown是怎么「变」成网页的？" class="headerlink" title="Markdown是怎么「变」成网页的？"></a>Markdown是怎么「变」成网页的？</h1><p>现在很多人都会用 <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>、<a target="_blank" rel="noopener" href="https://vuepress.vuejs.org/">VuePress</a>、<a target="_blank" rel="noopener" href="https://docsify.js.org/#/">Docsify</a> 等工具来搭建自己的博客或文档站，只需要写写 <code>.md</code> 文件，然后敲几行命令，最终就能在浏览器里看到漂亮的文章页面。</p>
+<p>但中间到底发生了什么？</p>
+<p>核心的一环就是：<strong>把 Markdown 文本解析成 HTML</strong>。而在 Hexo 的默认配置中，这件事就是交给一个叫 <strong>marked</strong> 的库来完成的（或者说，很多主题&#x2F;插件都在用它）。</p>
+<h1 id="Marked-是什么？"><a href="#Marked-是什么？" class="headerlink" title="Marked 是什么？"></a><a target="_blank" rel="noopener" href="https://marked.nodejs.cn/">Marked</a> 是什么？</h1><p>简单讲</p>
+<blockquote>
+<p><strong>marked 是一个用 JavaScript 编写的 Markdown 解析器和编译器</strong>，可以把 Markdown 字符串转化为 HTML 字符串。</p>
+</blockquote>
+<p>它有几个特点:</p>
+<ul>
+<li>纯JS编写，既可以在Node.js环境使用，也可以在浏览器端使用</li>
+<li>速度快，社区广泛，生态成熟</li>
+<li>支持自定义渲染</li>
+</ul>
+<h1 id="安装与使用"><a href="#安装与使用" class="headerlink" title="安装与使用"></a>安装与使用</h1><h2 id="1-安装-需要Node-js环境"><a href="#1-安装-需要Node-js环境" class="headerlink" title="1.安装(需要Node.js环境)"></a>1.安装(需要Node.js环境)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">bun install marked</span><br><span class="line"></span><br><span class="line">npm install marked</span><br><span class="line"></span><br><span class="line">yarn add marked</span><br><span class="line"></span><br><span class="line">pnpm add marked</span><br></pre></td></tr></table></figure>
 
+<h2 id="2最简单的使用例子"><a href="#2最简单的使用例子" class="headerlink" title="2最简单的使用例子"></a>2最简单的使用例子</h2><p>新建一个<code>mdtext.js</code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 引入 marked</span></span><br><span class="line"><span class="keyword">import</span> &#123; marked &#125; <span class="keyword">from</span> <span class="string">&quot;marked&quot;</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> mdText = <span class="string">`</span></span><br><span class="line"><span class="string">#这是你的一篇Markdown喵</span></span><br><span class="line"><span class="string"># Heading level 1</span></span><br><span class="line"><span class="string">## Heading level 2</span></span><br><span class="line"><span class="string">### Heading level 3</span></span><br><span class="line"><span class="string">这是 **加粗** 的文字</span></span><br><span class="line"><span class="string">&gt; 这是引用喵</span></span><br><span class="line"><span class="string">-这是列表1</span></span><br><span class="line"><span class="string">-这是列表2</span></span><br><span class="line"><span class="string">\`\`\` js</span></span><br><span class="line"><span class="string">console.log(&quot;Hello Markdown&quot;);</span></span><br><span class="line"><span class="string">\`\`\`</span></span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="comment">// 使用 marked 将 Markdown 转换为 HTML</span></span><br><span class="line"><span class="keyword">const</span> html = <span class="title function_">marked</span>(mdText)</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(html)</span><br></pre></td></tr></table></figure>
+
+<p>让后在终端执行<code>node mdtext.js</code></p>
+<p>你会在控制台看到这样的输出</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;#这是你的一篇Markdown喵&lt;/p&gt;</span><br><span class="line">&lt;h1&gt;Heading level 1&lt;/h1&gt;</span><br><span class="line">&lt;h2&gt;Heading level 2&lt;/h2&gt;</span><br><span class="line">&lt;h3&gt;Heading level 3&lt;/h3&gt;</span><br><span class="line">&lt;p&gt;这是 &lt;strong&gt;加粗&lt;/strong&gt; 的文字&lt;/p&gt;</span><br><span class="line">&lt;blockquote&gt;</span><br><span class="line">&lt;p&gt;这是引用喵</span><br><span class="line">-这是列表1</span><br><span class="line">-这是列表2&lt;/p&gt;</span><br><span class="line">&lt;/blockquote&gt;</span><br><span class="line">&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;console.log(&amp;quot;Hello Markdown&amp;quot;);</span><br><span class="line">&lt;/code&gt;&lt;/pre&gt;</span><br></pre></td></tr></table></figure>
+
+<p>到这为止，你已经体验到了marked的作用以及核心</p>
+<blockquote>
+<p>marked 输入的是 Markdown 字符串,输出的是 Html 字符串</p>
+</blockquote>
+<h3 id="3-在网页中使用-marked-并渲染"><a href="#3-在网页中使用-marked-并渲染" class="headerlink" title="3 在网页中使用 marked 并渲染"></a>3 在网页中使用 marked 并渲染</h3><p>上面的例子只是“打印出 HTML”，真正显示在浏览器里，还需要配合 DOM。</p>
+<p>如果你的项目还比较简单，没有打包工具，也可以直接通过 CDN：</p>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<p>新建一个.html文件,在其中写入</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;https://cdn.jsdelivr.net/npm/marked/marked.min.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;content&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span><br><span class="line"><span class="language-javascript">    <span class="keyword">const</span> mdText = <span class="string">`</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">#这是你的一篇Markdown喵</span></span></span><br><span class="line"><span class="string"><span class="language-javascript"># Heading level 1</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">## Heading level 2</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">### Heading level 3</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">这是 **加粗** 的文字</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">&gt; 这是引用喵</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">-这是列表1</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">-这是列表2</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">\`\`\` js</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">console.log(&quot;Hello Markdown&quot;);</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">\`\`\`</span></span></span><br><span class="line"><span class="string"><span class="language-javascript">`</span></span></span><br><span class="line"><span class="language-javascript"><span class="keyword">const</span> html = marked.<span class="title function_">parse</span>(mdText);</span></span><br><span class="line"><span class="language-javascript"><span class="comment">// 把生成的 HTML 填入 div</span></span></span><br><span class="line"><span class="language-javascript"><span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&quot;content&quot;</span>).<span class="property">innerHTML</span> = html;</span></span><br><span class="line"><span class="language-javascript"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>保存，并打开html文件，你就能直观的看到</p>
+<p>Markdown → HTML → DOM 渲染流程</p>
+<h1 id="Marked在内部做了什么"><a href="#Marked在内部做了什么" class="headerlink" title="Marked在内部做了什么"></a>Marked在内部做了什么</h1><p>在获取Markdown文本后，调用marked进行解析，marked内部会做两件事</p>
+<ul>
+<li>词法分析（Lexer）：把 Markdown 文本拆成一个个 Token（标题、段落、列表、代码块等）</li>
+<li>语法分析 + 渲染（Parser + Renderer）：把这些 Token 转成 HTML 字符串。</li>
+</ul>
+<p>Node 端生成 HTML 后，Hexo 会把 HTML 写入最终生成的 <code>.html</code> 文件；浏览器会把HTML插入到DOM中最后被浏览器渲染</p>
+<h1 id="自定义渲染器"><a href="#自定义渲染器" class="headerlink" title="自定义渲染器"></a>自定义渲染器</h1><p>很多时候，博客主题希望对 Markdown 渲染出来的 HTML 做更细致的控制，比如</p>
+<ul>
+<li>标题前加上一个图标；</li>
+<li>为每个标题生成一个带 <code>id</code> 的锚点，用于目录&#x2F;跳转；</li>
+<li>自定义代码块结构，配合前端的高亮插件（Prism.js &#x2F; highlight.js 等）。</li>
+</ul>
+<p>marked 提供了一个叫 <strong>Renderer</strong> 的机制，让你可以覆写某些“渲染规则”。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; marked &#125; <span class="keyword">from</span> <span class="string">&quot;marked&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建一个 renderer 实例</span></span><br><span class="line"><span class="keyword">const</span> renderer = <span class="keyword">new</span> marked.<span class="title class_">Renderer</span>();</span><br><span class="line">renderer.<span class="property">heading</span> = <span class="keyword">function</span> (<span class="params">text, level, raw, slugger</span>) &#123;</span><br><span class="line">  <span class="comment">// slugger 可以根据标题文本生成一个 id</span></span><br><span class="line">  <span class="keyword">const</span> id = slugger.<span class="title function_">slug</span>(raw); </span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;h<span class="subst">$&#123;level&#125;</span> id=&quot;<span class="subst">$&#123;id&#125;</span>&quot;&gt;</span></span><br><span class="line"><span class="string">      &lt;a href=&quot;#<span class="subst">$&#123;id&#125;</span>&quot; class=&quot;header-anchor&quot;&gt;#&lt;/a&gt;</span></span><br><span class="line"><span class="string">      <span class="subst">$&#123;text&#125;</span></span></span><br><span class="line"><span class="string">    &lt;/h<span class="subst">$&#123;level&#125;</span>&gt;</span></span><br><span class="line"><span class="string">  `</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">marked.<span class="title function_">use</span>(&#123; renderer &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> md = <span class="string">`</span></span><br><span class="line"><span class="string"># 自定义标题示例</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">## 子标题</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> html = marked.<span class="title function_">parse</span>(md);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(html);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>这样，你的标题就会被渲染成带有锚点链接的结构，比如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">id</span>=<span class="string">&quot;zi-ding-yi-biao-ti-shi-li&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;#zi-ding-yi-biao-ti-shi-li&quot;</span> <span class="attr">class</span>=<span class="string">&quot;header-anchor&quot;</span>&gt;</span>#<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">  自定义标题示例</span><br><span class="line"><span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>Hexo 的很多主题里，都会对代码块、标题、图片等做类似的自定义处理。</p>
+<h1 id="回到-Hexo：Hexo-是怎么用-marked-的？"><a href="#回到-Hexo：Hexo-是怎么用-marked-的？" class="headerlink" title="回到 Hexo：Hexo 是怎么用 marked 的？"></a>回到 Hexo：Hexo 是怎么用 marked 的？</h1><p>1.扫描Markdown文件</p>
+<ul>
+<li>Hexo会扫描 <code>source/_post</code>下所有的<code>.md</code>文件</li>
+<li>对每个文件读取内容，并解析其中的 Front-matter（YAML 头信息，比如 <code>title</code>, <code>date</code>, <code>tags</code> 等）。</li>
+</ul>
+<p>2.调用Markdown渲染</p>
+<ul>
+<li><p>Hexo 根据配置选择使用哪个“渲染插件”（renderer）；</p>
+</li>
+<li><p>渲染插件内部则会调用 marked，把正文部分的 Markdown 转成 HTML。</p>
+</li>
+</ul>
+<p>3.将HTML填入主题模板</p>
+<ul>
+<li>Hexo 根据配置选择使用哪个“渲染插件”（renderer）；</li>
+<li>Hexo 把文章的 HTML 内容和元信息（标题、日期、标签）组合成最终的 HTML 结构。</li>
+</ul>
+<p>4.写入静态文件</p>
+<ul>
+<li><p>所有页面最终被写到 <code>public/</code> 目录</p>
+</li>
+<li><p>部署时只需把 <code>public</code> 目录上传到服务器或托管平台(如 Github Pages)</p>
+</li>
+</ul>
+<blockquote>
+<p>Hexo 就是大量地帮你做 “读 Markdown → 调用 marked → 套模板 → 写 HTML 文件” 这件事</p>
+</blockquote>
+<h1 id="你已经学会使用Marked了，快编写一个自己的博客搭建程序吧"><a href="#你已经学会使用Marked了，快编写一个自己的博客搭建程序吧" class="headerlink" title="你已经学会使用Marked了，快编写一个自己的博客搭建程序吧"></a>你已经学会使用Marked了，快编写一个自己的博客搭建程序吧</h1>
       
     </div>
     <footer class="article-footer">
@@ -367,8 +436,8 @@
       
       
       
-        <a data-aos="zoom-in" href="/about/index.html#comments" class="article-comment-link">
-          <span class="post-comments-count valine-comment-count" data-xid="/about/" itemprop="commentCount"></span>
+        <a data-aos="zoom-in" href="/2025/11/19/Markdown%E6%98%AF%E6%80%8E%E4%B9%88%E3%80%8C%E5%8F%98%E3%80%8D%E6%88%90%E7%BD%91%E9%A1%B5%E7%9A%84%EF%BC%9F/#comments" class="article-comment-link">
+          <span class="post-comments-count valine-comment-count" data-xid="/2025/11/19/Markdown%E6%98%AF%E6%80%8E%E4%B9%88%E3%80%8C%E5%8F%98%E3%80%8D%E6%88%90%E7%BD%91%E9%A1%B5%E7%9A%84%EF%BC%9F/" itemprop="commentCount"></span>
           留言
         </a>
       
@@ -377,10 +446,31 @@
       
       
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="article-tag-list-item" data-aos="zoom-in"><a class="article-tag-list-link" href="/tags/Marked/" rel="tag">Marked</a></li></ul>
+
 
     </footer>
   </div>
   
+  <nav id="article-nav" data-aos="fade-up">
+    
+    
+    
+    <div class="article-nav-link-wrap right">
+      
+        <img data-src="https://img.cdn1.vip/i/68e29b90b6718_1759681424.webp" data-sizes="auto" alt="实时翻译功能的实现" class="lazyload">
+      
+      <a href="/2025/10/13/%E5%AE%9E%E6%97%B6%E7%BF%BB%E8%AF%91/"></a>
+      <div class="article-nav-caption">后一篇</div>
+      <h3 class="article-nav-title">
+        
+          实时翻译功能的实现
+        
+      </h3>
+    </div>
+    
+  </nav>
+
 
 </article>
 
@@ -419,7 +509,7 @@
   </section>
 
 
-</section>
+<script src="/js/translator.js"></script></section>
         </div>
         <footer id="footer">
   <div style="width: 100%; overflow: hidden">
@@ -478,7 +568,15 @@
       <nav id="mobile-nav">
   <div class="sidebar-wrap">
     
-      <div class="sidebar-author">
+      
+        <div class="sidebar-toc-sidebar"><h3 class="toc-title">文章目录</h3>
+<div class="sidebar-toc-wrapper toc-div-class" >
+  
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Markdown%E6%98%AF%E6%80%8E%E4%B9%88%E3%80%8C%E5%8F%98%E3%80%8D%E6%88%90%E7%BD%91%E9%A1%B5%E7%9A%84%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">Markdown是怎么「变」成网页的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Marked-%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">Marked 是什么？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">安装与使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85-%E9%9C%80%E8%A6%81Node-js%E7%8E%AF%E5%A2%83"><span class="toc-number">3.1.</span> <span class="toc-text">1.安装(需要Node.js环境)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E4%BD%BF%E7%94%A8%E4%BE%8B%E5%AD%90"><span class="toc-number">3.2.</span> <span class="toc-text">2最简单的使用例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8-marked-%E5%B9%B6%E6%B8%B2%E6%9F%93"><span class="toc-number">3.2.1.</span> <span class="toc-text">3 在网页中使用 marked 并渲染</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Marked%E5%9C%A8%E5%86%85%E9%83%A8%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88"><span class="toc-number">4.</span> <span class="toc-text">Marked在内部做了什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B8%B2%E6%9F%93%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">自定义渲染器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9E%E5%88%B0-Hexo%EF%BC%9AHexo-%E6%98%AF%E6%80%8E%E4%B9%88%E7%94%A8-marked-%E7%9A%84%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">回到 Hexo：Hexo 是怎么用 marked 的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%A0%E5%B7%B2%E7%BB%8F%E5%AD%A6%E4%BC%9A%E4%BD%BF%E7%94%A8Marked%E4%BA%86%EF%BC%8C%E5%BF%AB%E7%BC%96%E5%86%99%E4%B8%80%E4%B8%AA%E8%87%AA%E5%B7%B1%E7%9A%84%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E7%A8%8B%E5%BA%8F%E5%90%A7"><span class="toc-number">7.</span> <span class="toc-text">你已经学会使用Marked了，快编写一个自己的博客搭建程序吧</span></a></li></ol>
+  
+</div>
+</div>
+        <div class="sidebar-common-sidebar hidden"><div class="sidebar-author">
   <img data-src="/avatar/avatar.webp" data-sizes="auto" alt="Pamper_PRMS" class="lazyload">
   <div class="sidebar-author-name">Pamper_PRMS</div>
   <div class="sidebar-description">每天都要努力,才能触及心中的目标喵,才能和喜欢的人在一起喵</div>
@@ -545,9 +643,17 @@
     
   
 </div>
-
+</div>
+      
     
   </div>
+  
+    
+      <div class="sidebar-btn-wrapper">
+        <div class="sidebar-toc-btn current"></div>
+        <div class="sidebar-common-btn"></div>
+      </div>
+    
   
 </nav>
 
@@ -622,13 +728,13 @@
       <script data-pjax>
         window.REIMU_POST = {
           author: "Pamper_PRMS",
-          title: "关于",
-          url: "http://pamperkyumi.github.io/about/index.html",
+          title: "论md文件是如何渲染到网页上中的",
+          url: "http://pamperkyumi.github.io/2025/11/19/Markdown%E6%98%AF%E6%80%8E%E4%B9%88%E3%80%8C%E5%8F%98%E3%80%8D%E6%88%90%E7%BD%91%E9%A1%B5%E7%9A%84%EF%BC%9F/",
           excerpt: "",
           description: "",
-          stripContent: "关于我自己喵 👋自我介绍什么的太麻烦啦呜呜呜😭 一名普普通通的学生罢了 喜欢打游戏喵（除了打游戏就是咸鱼了喵 欢迎加我一起玩喵 编程语言有在认真学习喵(真的喵 我的一些联系方式喵✨   QQ 2879974569    Github Pamper_PRMS   Steam Pamper   Email PamperPRMS2024（👈友链可发email哦）   Bilibili Pamper_PRMS   ",
-          date: "Sun Oct 05 2025 23:52:00 GMT+0800",
-          updated: "Mon Oct 06 2025 22:09:40 GMT+0800",
+          stripContent: "Markdown是怎么「变」成网页的？现在很多人都会用 Hexo、VuePress、Docsify 等工具来搭建自己的博客或文档站，只需要写写 .md 文件，然后敲几行命令，最终就能在浏览器里看到漂亮的文章页面。 但中间到底发生了什么？ 核心的一环就是：把 Markdown 文本解析成 HTML。而在 Hexo 的默认配置中，这件事就是交给一个叫 marked 的库来完成的（或者说，很多主题&amp;#x2F;插件都在用它）。 Marked 是什么？简单讲  marked 是一个用 JavaScript",
+          date: "Wed Nov 19 2025 21:16:42 GMT+0800",
+          updated: "Thu Nov 20 2025 00:46:15 GMT+0800",
           cover: "/images/banner.webp",
         };
       </script>
